@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <title>
+            2020 html be like:
+        </title>
+    </head>
+    <body>
+        <center class="text1">
+            Cyberflixt Server storage
+        </center>
+        <script>
+            fpost()
+            async function fpost(){
+                const timestamp = Date.now();
+                const version = 1
+                const localTime = new Date(timestamp).toLocaleTimeString();
+                const data = {version,timestamp,localTime};
+                const options = {
+                    method: 'POST',
+                    body: JSON.stringify(data),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                };
+                const res = await fetch('/api',options);
+                const json = await res.json();
+                console.log(json);
+            }
+        </script>
+    </body>
+</html>
